@@ -3,6 +3,8 @@ import { setPos } from 'progkids/player';
 import { removeAll } from 'progkids/drones';
 import { connect,clear } from 'progkids/server';
 
+import start from './start';
+
 const NICK = 'Sup';
 const TOKEN = '5esyLrgTE63CPwi4iE5B';
 
@@ -12,7 +14,7 @@ const main = async () => {
     token: TOKEN,
   });
 
-  await new Promise((ok) => setTimeout(ok, 5000));
+  await new Promise((ok) => setTimeout(ok, 2000));
 
   clear();
 
@@ -22,39 +24,11 @@ const main = async () => {
   setCuboid(0, 12, 0, 20, 12, 5, 1);
   setPos(10, 13, 1);
 
-  let s = [
-    [1, 1, 1],
-    [1, 0, 0],
-    [1, 0, 0],
-    [1, 1, 1],
-  ];
-
-  let t = [
-    [1, 1, 1],
-    [0, 1, 0],
-    [0, 1, 0],
-    [0, 1, 0],
-  ];
-
-  let a = [
-    [0, 1, 0],
-    [1, 0, 1],
-    [1, 1, 1],
-    [1, 0, 1],
-  ]; 
-  
-  let r = [
-    [1, 1, 0],
-    [1, 0, 1],
-    [1, 1, 0],
-    [1, 0, 0],
-  ];
-
   let pos = { x: 19, y: 12, z: 4 };
   let x_offset = 0;
   let z_offset = 0;
 
-  for (const i of [s,t,a,r,t]) {
+  for (const i of start) {
   	z_offset = 0;
 	  for (const j of i) {
 		  for (const n of j) {

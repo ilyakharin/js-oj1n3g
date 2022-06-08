@@ -16,11 +16,11 @@ const main = async () => {
 
   clear();
 
-  await setCuboid(-63, 0, -63, 63, 25, 63, 0);
-  await removeAll();
-  await setCuboid(-63, 1, -63, 63, 9, 63, 10);
-  await setCuboid(0, 12, 0, 20, 12, 5, 1);
-  await setPos(10, 13, 1);
+  setCuboid(-63, 0, -63, 63, 25, 63, 0);
+  removeAll();
+  setCuboid(-63, 1, -63, 63, 9, 63, 10);
+  setCuboid(0, 12, 0, 20, 12, 5, 1);
+  setPos(10, 13, 1);
 
   let s = [
     [1, 1, 1],
@@ -50,29 +50,29 @@ const main = async () => {
     [1, 0, 0],
   ];
 
-  let x = 19;
-  let y = 4;
+  let pos = { x: 19, y: 12, z: 4 };
+  let x_offset = 0;
+  let z_offset = 0;
 
-  for (let b of [s,t,a,r,t]) {
-  	y = 4;
-    console.log(b);
-	  for (let s of b) {
-      console.log(s);
-		  for (let n of s) {
+  for (const i of [s,t,a,r,t]) {
+  	z_offset = 0;
+	  for (const j of i) {
+		  for (const n of j) {
 			  if (n === 1) {
-			  	await setBlock(x,12,y,41);
-			  	x--;
+			  	  setBlock(
+            pos.x + x_offset, 
+            pos.y,
+            pos.z + z_offset,
+            41
+            );
         }
-			  else {
-				  await setBlock(x,12,y,1);
-			  	x--;
-        }
+        x_offset--;
       }
-		  x+=3;
-		  y-=1;
+		  x_offset += 3;
+		  z_offset -= 1;
     }
-  	x-=4;
-	  y+=4;
+  	x_offset -= 4;
+	  z_offset += 4;
   }
 };
 

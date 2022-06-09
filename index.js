@@ -1,6 +1,6 @@
 import { setCuboid, setBlock } from 'progkids/world';
 import { setPos } from 'progkids/player';
-import { removeAll } from 'progkids/drones';
+import { removeAll, createDrone } from 'progkids/drones';
 import { connect,clear } from 'progkids/server';
 
 import start from './start';
@@ -8,16 +8,8 @@ import start from './start';
 const NICK = 'Sup';
 const TOKEN = '5esyLrgTE63CPwi4iE5B';
 
-const main = async () => {
-  await connect({
-    nick: NICK,
-    token: TOKEN,
-  });
 
-  await new Promise((ok) => setTimeout(ok, 2000));
-
-  clear();
-
+const go = async () => {
   setCuboid(-63, 0, -63, 63, 25, 63, 0);
   removeAll();
   setCuboid(-63, 1, -63, 63, 9, 63, 10);
@@ -48,6 +40,31 @@ const main = async () => {
   	x_offset -= 4;
 	  z_offset += 4;
   }
+}
+
+const main = async () => {
+  await connect({
+    nick: NICK,
+    token: TOKEN,
+  });
+
+  await new Promise((ok) => setTimeout(ok, 3000));
+
+  clear();
+  await go();
+
+  
+
+
+
+
+  const winDrone = createDrone(43,20,-1,'(◕‿◕)');
+  winDrone.move('DOWN',1);
+  winDrone.turnRight();
+  winDrone.turnRight();
+  setCuboid(9, 12, 6, 11, 12, 8, 57);
+  setCuboid(43, 19, -5, 47, 19, -1, 57);
+  
 };
 
 document.getElementById('test').addEventListener('click', () => {

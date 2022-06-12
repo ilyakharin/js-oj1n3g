@@ -1,7 +1,7 @@
 import { setCuboid, setBlock } from 'progkids/world';
 import { setPos } from 'progkids/player';
 import { removeAll, createDrone } from 'progkids/drones';
-import { connect, clear, stop } from 'progkids/server';
+import { connect, clear } from 'progkids/server';
 
 import start from './start';
 
@@ -51,12 +51,13 @@ const main = async () => {
   clear();
   begin();
 
-  const winDrone = createDrone(43, 20, -1, '(◕‿◕)');
-  winDrone.move('DOWN', 1);
-  winDrone.turnRight();
-  winDrone.turnRight();
-  await setCuboid(9, 12, 6, 11, 12, 8, 57);
+  setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
+  let winDrone = createDrone(43, 20, -1, '(◕‿◕)');
+  await winDrone.move('DOWN', 1);
+  await winDrone.turnRight();
+  await winDrone.turnRight();
+  
 };
 
 document.getElementById('start').addEventListener('click', () => {

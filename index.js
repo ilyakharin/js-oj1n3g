@@ -67,6 +67,17 @@ const main = async () => {
   
 };
 
-document.getElementById('test').addEventListener('click', () => {
+document.getElementById('start').addEventListener('click', () => {
   main();
 });
+
+document.getElementById('stop').addEventListener('click', () => {
+  stop();
+});
+
+document.getElementById('start').addEventListener('click', () => {
+  clear();
+});
+
+
+

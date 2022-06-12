@@ -1,15 +1,14 @@
 import { setCuboid, setBlock } from 'progkids/world';
 import { setPos } from 'progkids/player';
 import { removeAll, createDrone } from 'progkids/drones';
-import { connect,clear } from 'progkids/server';
+import { connect, clear, stop } from 'progkids/server';
 
 import start from './start';
 
 const NICK = 'Sup';
 const TOKEN = '5esyLrgTE63CPwi4iE5B';
 
-
-const go = async () => {
+const begin = async () => {
   setCuboid(-63, 0, -63, 63, 25, 63, 0);
   removeAll();
   setCuboid(-63, 1, -63, 63, 9, 63, 10);
@@ -21,26 +20,25 @@ const go = async () => {
   let z_offset = 0;
 
   for (const i of start) {
-  	z_offset = 0;
-	  for (const j of i) {
-		  for (const n of j) {
-			  if (n === 1) {
-			  	  setBlock(
-            pos.x + x_offset, 
-            pos.y,
-            pos.z + z_offset,
-            41
-            );
+    z_offset = 0;
+    for (const j of i) {
+      for (const n of j) {
+        if (n === 1) {
+          setBlock(pos.x + x_offset, pos.y, pos.z + z_offset, 41);
         }
         x_offset--;
       }
-		  x_offset += 3;
-		  z_offset -= 1;
+      x_offset += 3;
+      z_offset -= 1;
     }
-  	x_offset -= 4;
-	  z_offset += 4;
+    x_offset -= 4;
+    z_offset += 4;
   }
-}
+};
+
+const delay = async () => {
+  await new Promise((ok) => setTimeout(ok, 2000));
+};
 
 const main = async () => {
   await connect({
@@ -48,36 +46,19 @@ const main = async () => {
     token: TOKEN,
   });
 
-  await new Promise((ok) => setTimeout(ok, 3000));
+  await new Promise((ok) => setTimeout(ok, 1000));
 
   clear();
-  await go();
+  begin();
 
-  
-
-
-
-
-  const winDrone = createDrone(43,20,-1,'(◕‿◕)');
-  winDrone.move('DOWN',1);
+  const winDrone = createDrone(43, 20, -1, '(◕‿◕)');
+  winDrone.move('DOWN', 1);
   winDrone.turnRight();
   winDrone.turnRight();
-  setCuboid(9, 12, 6, 11, 12, 8, 57);
+  await setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
-  
 };
 
 document.getElementById('start').addEventListener('click', () => {
   main();
 });
-
-document.getElementById('stop').addEventListener('click', () => {
-  stop();
-});
-
-document.getElementById('start').addEventListener('click', () => {
-  clear();
-});
-
-
-

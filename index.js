@@ -36,36 +36,8 @@ const begin = async () => {
   }
 };
 
-const platform2 = async (x, y, z, type) => {
+const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform3(13, 12, 13, 3);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
-
-const platform1 = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform2(9, 12, 13, 218);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
-
-
-
-const stop = async () => {
-  process.exit();
 }
 
 const main = async () => {
@@ -80,23 +52,17 @@ const main = async () => {
   setCuboid(43, 19, -5, 47, 19, -1, 57);
   
 
-  setInterval(async () => {
+  const newInterval = setInterval(async () => {
     let pos = await getPos();
     let block = await getBlock(pos[0], pos[1] - 1, pos[2]);
     if (block === 57) {
-      await platform1(9,12,9,1);
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
+      await platform(9,12,9,1);
+    } else if (block === 10) {
       setPos(10,13,1);
     }
   }, 1000);
 };
 
-
-
-
-document.getElementById('stop').addEventListener('click', () => {
-  stop();
-});
 
 document.getElementById('clear').addEventListener('click', () => {
   clear();

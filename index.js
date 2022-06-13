@@ -36,8 +36,8 @@ const begin = async () => {
   }
 };
 
-const delay = async () => {
-  await new Promise((ok) => setTimeout(ok, 2000));
+const stop = async () => {
+  return 0;
 };
 
 const main = async () => {
@@ -48,16 +48,23 @@ const main = async () => {
 
   await new Promise((ok) => setTimeout(ok, 1000));
 
-  clear();
   begin();
 
   setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
   let winDrone = createDrone(43, 20, -1, '(◕‿◕)');
-  await winDrone.move('DOwN', 1);
+  await winDrone.move('DOwN', 3);
   await winDrone.turnRight();
   await winDrone.turnRight();
 };
+
+document.getElementById('clear').addEventListener('click', () => {
+  clear();
+});
+
+document.getElementById('stop').addEventListener('click', () => {
+  stop();
+});
 
 document.getElementById('start').addEventListener('click', () => {
   main();

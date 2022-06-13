@@ -36,13 +36,8 @@ const begin = async () => {
   }
 };
 
-const stop = async () => {
-  clearInterval(newInterval);
-}
-
-
 const platform = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
+  setCuboid(x, y, z, x + 2, y, z + 2, type)
 }
 
 const main = async () => {
@@ -57,21 +52,21 @@ const main = async () => {
   setCuboid(43, 19, -5, 47, 19, -1, 57);
   
 
-  const newInterval = setInterval(async () => {
+  setInterval(async () => {
     let pos = await getPos();
     let block = await getBlock(pos[0], pos[1] - 1, pos[2]);
     if (block === 57) {
-      await platform(9,12,9,1);
+      await platform(9, 12, 9, 2);
+    } else if (block === 2) {
+      await platform(9, 12, 13, 218);
+    } else if (block === 218) {
+      await platform(13, 12, 13, 3);
     } else if (block === 10) {
       setPos(10,13,1);
     }
   }, 1000);
 };
 
-
-document.getElementById('stop').addEventListener('click', () => {
-  stop();
-});
 
 document.getElementById('clear').addEventListener('click', () => {
   clear();

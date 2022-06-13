@@ -9,8 +9,8 @@ const NICK = 'Sup';
 const TOKEN = '5esyLrgTE63CPwi4iE5B';
 
 const begin = async () => {
-  setCuboid(-63, 0, -63, 63, 25, 63, 0);
   removeAll();
+  setCuboid(-63, 0, -63, 63, 25, 63, 0);
   setCuboid(-63, 1, -63, 63, 9, 63, 10);
   setCuboid(0, 12, 0, 20, 12, 5, 1);
   setPos(10, 13, 1);
@@ -34,13 +34,17 @@ const begin = async () => {
     x_offset -= 4;
     z_offset += 4;
   }
-  
+
   setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
 };
 
 const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x + 2, y, z + 2, type)
+}
+
+const bigPlatform = async () =>{
+  setCuboid(11, 15, 30, 13, 15, 40, 14);
 }
 
 const main = async () => {
@@ -73,10 +77,15 @@ const main = async () => {
     } else if (block === 112) {
       await platform(11, 15, 27, 79);
     } else if (block === 79) {
-      await platform(14, 12, 23, 20);
-    } else if (block === 5) {
-      await platform(14, 12, 23, 20);
-    } else if (block === 5) {
+      await bigPlatform();
+    } else if (block === 14) {
+      await platform(11, 15, 41, 13);
+      let n = 40;
+	    while (n > 0) {
+		    setBlock(Math.random(11, 13), 15, Math.random(30, 40), 0);
+		    n -= 1;
+      }
+    } else if (block === 13) {
       await platform(14, 12, 23, 20);
     } else if (block === 5) {
       await platform(14, 12, 23, 20);

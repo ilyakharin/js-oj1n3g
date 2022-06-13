@@ -71,7 +71,7 @@ const main = async () => {
     } else if (block === 49) {
       await platform(17, 12, 23, 5);
     } else if (block === 5) {
-      await platform(14, 13, 23, 20); //
+      await platform(14, 13, 23, 20); 
     } else if (block === 20) {
       await platform(11, 14, 23, 112);
     } else if (block === 112) {
@@ -86,11 +86,11 @@ const main = async () => {
 		    n -= 1;
       }
     } else if (block === 13) {
-      await platform(14, 12, 23, 20);
-    } else if (block === 5) {
-      await platform(14, 12, 23, 20);
-    } else if (block === 5) {
-      await platform(14, 12, 23, 20);
+      await platform(15, 16, 41, 80);
+    } else if (block === 80) {
+      await platform(19, 17, 41, 121);
+    } else if (block === 121) {
+      await platform(24, 18, 41, 170);
     } else if (block === 10) {
       setPos(10,13,1);
     }

@@ -82,7 +82,7 @@ const main = async () => {
       await platform(11, 15, 41, 13);
       let n = 40;
 	    while (n > 0) {
-		    setBlock(Math.floor(Math.random() * 3) + 11, 15, Math.floor(Math.random() * 10) + 30, 0);
+		    setBlock(Math.floor(Math.random() * 3) + 11, 15, Math.floor(Math.random() * 11) + 30);
 		    n -= 1;
       }
     } else if (block === 13) {

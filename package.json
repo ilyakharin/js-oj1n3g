@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "progkids": "^0.0.12"
+    "progkids": "^0.0.13"
   }
 }

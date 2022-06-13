@@ -64,8 +64,8 @@ const main = async () => {
     } else if (block === 4) {
       await platform(9, 12, 13, 89);
     } else if (block === 89) {
-      await platform(13, 12, 13, 44);
-    } else if (block === 44) {
+      await platform(13, 12, 13, 101);
+    } else if (block === 101) {
       await platform(17, 12, 18, 129);
     } else if (block === 129) {
       await platform(17, 12, 23, 5);

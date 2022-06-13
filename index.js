@@ -72,7 +72,7 @@ const main = async () => {
     } else if (block === 49) {
       await platform(17, 12, 23, 5);
     } else if (block === 5) {
-      await platform(14, 12, 23, 121);
+      await platform(14, 12, 23, 20);
     } else if (block === 10) {
       setPos(10,13,1);
     }

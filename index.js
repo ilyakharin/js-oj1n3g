@@ -34,11 +34,10 @@ const begin = async () => {
     x_offset -= 4;
     z_offset += 4;
   }
+  
+  setCuboid(9, 12, 6, 11, 12, 8, 57);
+  setCuboid(43, 19, -5, 47, 19, -1, 57);
 };
-
-function platform1(x, y, z, type) {
-  setCuboid(x, y, z, x + 2, y, z + 2, type)
-}
 
 const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x + 2, y, z + 2, type)
@@ -51,11 +50,7 @@ const main = async () => {
   });
 
   begin();
-
-  setCuboid(9, 12, 6, 11, 12, 8, 57);
-  setCuboid(43, 19, -5, 47, 19, -1, 57);
   
-
   setInterval(async () => {
     let pos = await getPos();
     let block = await getBlock(pos[0], pos[1] - 1, pos[2]);

@@ -64,7 +64,9 @@ const platform1 = async (x, y, z, type) => {
 
 
 
-
+const stop = async () => {
+  process.exit(1)
+}
 
 const main = async () => {
   await connect({
@@ -91,6 +93,11 @@ const main = async () => {
 };
 
 
+
+
+document.getElementById('stop').addEventListener('click', () => {
+  stop();
+});
 
 document.getElementById('clear').addEventListener('click', () => {
   clear();

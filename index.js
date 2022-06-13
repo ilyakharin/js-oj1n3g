@@ -1,4 +1,4 @@
-import { setCuboid, setBlock } from 'progkids/world';
+import { setCuboid, setBlock, getBlock } from 'progkids/world';
 import { setPos, getPos } from 'progkids/player';
 import { removeAll, createDrone } from 'progkids/drones';
 import { connect, clear } from 'progkids/server';

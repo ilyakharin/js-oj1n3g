@@ -63,74 +63,6 @@ const platform1 = async (x, y, z, type) => {
 }
 
 
-const platform3 = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform4(17, 12, 13, 4);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
-
-const platform4 = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform5(17, 12, 18, 5);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
-
-const platform5 = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform6(17, 12, 18, 5);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
-
-const platform6 = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform7(14, 13, 23, 5);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
-
-const platform7 = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform8(11, 14, 23, 97);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
-
-
-
-
 
 
 
@@ -156,8 +88,6 @@ const main = async () => {
     }
   }, 1000);
 };
-
-
 
 
 

@@ -65,7 +65,7 @@ const platform1 = async (x, y, z, type) => {
 
 
 const stop = async () => {
-  process.exit(1)
+  process.exit();
 }
 
 const main = async () => {

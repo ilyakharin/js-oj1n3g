@@ -36,6 +36,10 @@ const begin = async () => {
   }
 };
 
+function platform1(x, y, z, type) {
+  setCuboid(x, y, z, x + 2, y, z + 2, type)
+}
+
 const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x + 2, y, z + 2, type)
 }
@@ -58,7 +62,8 @@ const main = async () => {
     if (block === 57) {
       await platform(9, 12, 9, 4);
     } else if (block === 4) {
-      await platform(9, 12, 13, 218);
+      console.log(block);
+      platform(9, 12, 13, 218);
     } else if (block === 218) {
       await platform(13, 12, 13, 3);
     } else if (block === 10) {

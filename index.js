@@ -146,24 +146,18 @@ const main = async () => {
 
   setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
-
-
-
-
-
   
 
   setInterval(async () => {
     let pos = getPos();
-    console.log(pos);
-    if (true) {
-      console.log('ok');
+    let underPos = [pos[0], pos[1] - 1, pos[2]];
+    console.log(getBlock(underPos[0], underPos[1], underPos[2]));
+    if (getBlock(underPos[0], underPos[1], underPos[2]) === 57) {
       await platform1(9,12,9,1);
     } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
       setPos(10,13,1);
     }
   }, 1000);
-
 };
 
 

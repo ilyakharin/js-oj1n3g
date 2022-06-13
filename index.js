@@ -36,6 +36,19 @@ const begin = async () => {
   }
 };
 
+const platform2 = async (x, y, z, type) => {
+  setCuboid(x, y, z, x+2, y, z+2, type)
+  while (true){
+    let pos = getPos();
+    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
+      await platform3(13, 12, 13, 3);
+      break;
+    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
+      setPos(10, 13, 1);
+    }
+  }
+}
+
 const platform1 = async (x, y, z, type) => {
   setCuboid(x, y, z, x+2, y, z+2, type)
   while (true){
@@ -49,18 +62,6 @@ const platform1 = async (x, y, z, type) => {
   }
 }
 
-const platform2 = async (x, y, z, type) => {
-  setCuboid(x, y, z, x+2, y, z+2, type)
-  while (true){
-    let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type) {
-      await platform3(13, 12, 13, 3);
-      break;
-    } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
-      setPos(10, 13, 1);
-    }
-  }
-}
 
 const platform3 = async (x, y, z, type) => {
   setCuboid(x, y, z, x+2, y, z+2, type)

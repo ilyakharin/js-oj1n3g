@@ -95,7 +95,7 @@ const main = async () => {
       await platform(29, 19, 27, 35);
       let n = 25;
 	    while (n > 0) {
-		    setBlock(Math.floor(Math.random() * 3) + 28, 15, Math.floor(Math.random() * 11) + 30, 0);
+		    setBlock(Math.floor(Math.random() * 3) + 28, 19, Math.floor(Math.random() * 11) + 30, 0);
 		    n -= 1;
       }
     } else if (block === 35) {

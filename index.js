@@ -43,10 +43,6 @@ const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x + 2, y, z + 2, type)
 }
 
-const bigPlatform = async () =>{
-  setCuboid(11, 15, 30, 13, 15, 40, 14);
-}
-
 const main = async () => {
   await connect({
     nick: NICK,
@@ -77,7 +73,7 @@ const main = async () => {
     } else if (block === 112) {
       await platform(11, 15, 27, 79);
     } else if (block === 79) {
-      await bigPlatform();
+      await setCuboid(11, 15, 30, 13, 15, 40, 14);
     } else if (block === 14) {
       await platform(11, 15, 41, 13);
       let n = 25;

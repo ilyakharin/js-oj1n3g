@@ -56,8 +56,8 @@ const main = async () => {
     let pos = await getPos();
     let block = await getBlock(pos[0], pos[1] - 1, pos[2]);
     if (block === 57) {
-      await platform(9, 12, 9, 2);
-    } else if (block === 2) {
+      await platform(9, 12, 9, 4);
+    } else if (block === 4) {
       await platform(9, 12, 13, 218);
     } else if (block === 218) {
       await platform(13, 12, 13, 3);

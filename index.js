@@ -87,6 +87,19 @@ const main = async () => {
       await platform(19, 17, 41, 121);
     } else if (block === 121) {
       await platform(24, 18, 41, 170);
+    } else if (block === 170) {
+      await platform(29, 19, 41, 22);
+    } else if (block === 22) {
+      await setCuboid(29, 19, 30, 31, 19, 40, 24)
+    } else if (block === 24) {
+      await platform(29, 19, 27, 35);
+      let n = 25;
+	    while (n > 0) {
+		    setBlock(Math.floor(Math.random() * 3) + 28, 15, Math.floor(Math.random() * 11) + 30, 0);
+		    n -= 1;
+      }
+    } else if (block === 35) {
+      await platform18(29, 19, 25, 155);
     } else if (block === 10) {
       setPos(10,13,1);
     }

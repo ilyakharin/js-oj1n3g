@@ -1,5 +1,5 @@
 import { setCuboid, setBlock } from 'progkids/world';
-import { setPos } from 'progkids/player';
+import { setPos, getPos } from 'progkids/player';
 import { removeAll, createDrone } from 'progkids/drones';
 import { connect, clear } from 'progkids/server';
 
@@ -36,9 +36,22 @@ const begin = async () => {
   }
 };
 
-const stop = async () => {
-  return 0;
-};
+
+
+const platform1 = async (x, y, z, type) => {
+  setCuboid(x, y, z, x+2, y, z+2, type)
+  while (true){
+    let pos = getPos();
+    if (getBlock(pos[0], pos[1] - 1, pos[2]) == type){
+      //platform2(9, 12, 13, 218);
+      break;
+    } elif (getBlock(pos[0], pos[1] - 1, pos[2]) == 10);{
+      setPos(10, 13, 1)
+    }
+  }
+}
+
+
 
 const main = async () => {
   await connect({
@@ -52,18 +65,18 @@ const main = async () => {
 
   setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
-  let winDrone = createDrone(43, 20, -1, '(◕‿◕)');
-  await winDrone.move('DOwN', 3);
-  await winDrone.turnRight();
-  await winDrone.turnRight();
+  
+  const drone = await createDrone(43, 20, -1, '(◕‿◕)');
+  await drone.move('DOWN',1)
+  await drone.turnRight()
+  await drone.turnRight()
+
+  await platform1(9, 12, 9, 1);
 };
+
 
 document.getElementById('clear').addEventListener('click', () => {
   clear();
-});
-
-document.getElementById('stop').addEventListener('click', () => {
-  stop();
 });
 
 document.getElementById('start').addEventListener('click', () => {

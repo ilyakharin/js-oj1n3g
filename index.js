@@ -79,8 +79,9 @@ const main = async () => {
   
 
   setInterval(async () => {
-    let pos = getPos();
+    let pos = await getPos();
     let underPos = [pos[0], pos[1] - 1, pos[2]];
+    console.log(underPos);
     if (getBlock(underPos[0], underPos[1], underPos[2]) === 57) {
       await platform1(9,12,9,1);
     } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {

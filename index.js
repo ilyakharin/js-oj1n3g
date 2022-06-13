@@ -147,25 +147,27 @@ const main = async () => {
   setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
 
-  const drone = await createDrone(43, 20, -1, '(◕‿◕)');
-  await drone.move('DOWN',1)
-  await drone.turnRight()
-  await drone.turnRight()
-
-  await platform1(9, 12, 9, 1);
 
 
 
-  while (true) {
+
+  
+
+  setInterval(async () => {
     let pos = getPos();
-    if (getBlock(pos[0], pos[1] - 1, pos[2]) == 57) {
-      platform1(9,12,9,1);
-		  break;
+    console.log(pos);
+    if (true) {
+      console.log('ok');
+      await platform1(9,12,9,1);
     } else if (getBlock(pos[0], pos[1] - 1, pos[2]) == 10) {
       setPos(10,13,1);
     }
-  }
+  }, 1000);
+
 };
+
+
+
 
 
 document.getElementById('clear').addEventListener('click', () => {

@@ -36,6 +36,11 @@ const begin = async () => {
   }
 };
 
+const stop = async () => {
+  clearInterval(newInterval);
+}
+
+
 const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x+2, y, z+2, type)
 }
@@ -63,6 +68,10 @@ const main = async () => {
   }, 1000);
 };
 
+
+document.getElementById('stop').addEventListener('click', () => {
+  stop();
+});
 
 document.getElementById('clear').addEventListener('click', () => {
   clear();

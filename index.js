@@ -43,7 +43,7 @@ const platform = async (x, y, z, type) => {
 }
 
 const movePlatform = async () => {
-  setCuboid(28, 19, 20, 30, 19, 22, 1);
+  setCuboid(28, 19, 20, 30, 19, 22, 17);
   let n = 0;
   let moveInterval = setInterval(async () => {
     setCuboid(31 + x, 19, 20, 31 + x, 19, 22, 1);

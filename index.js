@@ -42,6 +42,10 @@ const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x + 2, y, z + 2, type)
 }
 
+const stop = async () => {
+  clearInterval(newInterval);
+}
+
 const main = async () => {
   await connect({
     nick: NICK,
@@ -61,6 +65,7 @@ const main = async () => {
         break;
       case 4:
         await platform(9, 12, 13, 89);
+        clearInterval(newInterval);
         break;
       case 89:
         await platform(13, 12, 13, 18);
@@ -128,6 +133,9 @@ const main = async () => {
 };
 
 
+document.getElementById('stop').addEventListener('click', () => {
+  stop();
+});
 
 document.getElementById('clear').addEventListener('click', () => {
   clear();

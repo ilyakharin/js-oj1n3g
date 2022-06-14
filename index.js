@@ -42,8 +42,17 @@ const platform = async (x, y, z, type) => {
   setCuboid(x, y, z, x + 2, y, z + 2, type)
 }
 
-const stop = async () => {
-  clearInterval(newInterval);
+const movePlatform = async () => {
+  setCuboid(28, 19, 20, 30, 19, 22, 1);
+  let n = 0;
+  let moveInterval = setInterval(async () => {
+    setCuboid(31 + x, 19, 20, 31 + x, 19, 22, 1);
+    setCuboid(28 + x, 19, 20, 28 + x, 19, 22, 0);
+    n += 1;
+    if (n > 15){
+      clearInterval(moveInterval);
+    }
+  }, 1500);
 }
 
 const main = async () => {
@@ -58,14 +67,16 @@ const main = async () => {
     let pos = await getPos();
     let block = await getBlock(pos[0], pos[1] - 1, pos[2]);
 
+    document.getElementById('stop').addEventListener('click', () => {
+      clearInterval(newInterval);
+    });
+
     switch (block) {
       case 57:
-        console.log('ok')
         await platform(9, 12, 9, 4);
         break;
       case 4:
         await platform(9, 12, 13, 89);
-        clearInterval(newInterval);
         break;
       case 89:
         await platform(13, 12, 13, 18);
@@ -125,17 +136,16 @@ const main = async () => {
       case 35:
         await platform(29, 19, 25, 7);
         break;
+      case 7:
+        await movePlatform();
+        break;
       case 10:
         setPos(10,13,1);
         break;
       }
-  }, 100);
+  }, 400);
 };
 
-
-document.getElementById('stop').addEventListener('click', () => {
-  stop();
-});
 
 document.getElementById('clear').addEventListener('click', () => {
   clear();

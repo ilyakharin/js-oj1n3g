@@ -50,7 +50,7 @@ const main = async () => {
 
   begin();
   
-  const newInterval = setInterval(async () => {
+  let newInterval = setInterval(async () => {
     let pos = await getPos();
     let block = await getBlock(pos[0], pos[1] - 1, pos[2]);
 

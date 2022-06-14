@@ -34,7 +34,6 @@ const begin = async () => {
     x_offset -= 4;
     z_offset += 4;
   }
-
   setCuboid(9, 12, 6, 11, 12, 8, 57);
   setCuboid(43, 19, -5, 47, 19, -1, 57);
 };
@@ -51,60 +50,83 @@ const main = async () => {
 
   begin();
   
-  setInterval(async () => {
+  const newInterval = setInterval(async () => {
     let pos = await getPos();
     let block = await getBlock(pos[0], pos[1] - 1, pos[2]);
-    if (block === 57) {
-      await platform(9, 12, 9, 4);
-    } else if (block === 4) {
-      await platform(9, 12, 13, 89);
-    } else if (block === 89) {
-      await platform(13, 12, 13, 18);
-    } else if (block === 18) {
-      await platform(17, 12, 13, 45);
-    } else if (block === 45) {
-      await platform(17, 12, 18, 49);
-    } else if (block === 49) {
-      await platform(17, 12, 23, 5);
-    } else if (block === 5) {
-      await platform(14, 13, 23, 20); 
-    } else if (block === 20) {
-      await platform(11, 14, 23, 112);
-    } else if (block === 112) {
-      await platform(11, 15, 27, 79);
-    } else if (block === 79) {
-      await setCuboid(11, 15, 30, 13, 15, 40, 14);
-    } else if (block === 14) {
-      await platform(11, 15, 41, 13);
-      let n = 25;
-	    while (n > 0) {
+
+    switch (block) {
+      case 57:
+        console.log('ok')
+        await platform(9, 12, 9, 4);
+        break;
+      case 4:
+        await platform(9, 12, 13, 89);
+        break;
+      case 89:
+        await platform(13, 12, 13, 18);
+        break;
+      case 18:
+        await platform(17, 12, 13, 45);
+        break;
+      case 45:
+        await platform(17, 12, 18, 49);
+        break;
+      case 49:
+        await platform(17, 12, 23, 5);
+        break;
+      case 5:
+        await platform(14, 13, 23, 20); 
+        break;
+      case 20:
+        await platform(11, 14, 23, 112);
+        break;
+      case 112:
+        await platform(11, 15, 27, 79);
+        break;
+      case 79:
+        await setCuboid(11, 15, 30, 13, 15, 40, 14);
+        break;
+      case 14:
+        await platform(11, 15, 41, 13);
+        let n = 25;
+	      while (n > 0) {
 		    setBlock(Math.floor(Math.random() * 3) + 11, 15, Math.floor(Math.random() * 11) + 30, 0);
 		    n -= 1;
-      }
-    } else if (block === 13) {
-      await platform(15, 16, 41, 80);
-    } else if (block === 80) {
-      await platform(19, 17, 41, 121);
-    } else if (block === 121) {
-      await platform(24, 18, 41, 170);
-    } else if (block === 170) {
-      await platform(29, 19, 41, 22);
-    } else if (block === 22) {
-      await setCuboid(29, 19, 30, 31, 19, 40, 24)
-    } else if (block === 24) {
-      await platform(29, 19, 27, 35);
-      let n = 25;
-	    while (n > 0) {
+        }
+        break;
+      case 13:
+        await platform(15, 16, 41, 80);
+        break;
+      case 80:
+        await platform(19, 17, 41, 121);
+        break;
+      case 121:
+        await platform(24, 18, 41, 170);
+        break;
+      case 170:
+        await platform(29, 19, 41, 22);
+        break;
+      case 22:
+        await setCuboid(29, 19, 30, 31, 19, 40, 24)
+        break;
+      case 24:
+        await platform(29, 19, 27, 35);
+        let m = 25;
+	      while (m > 0) {
 		    setBlock(Math.floor(Math.random() * 4) + 28, 19, Math.floor(Math.random() * 11) + 30, 0);
-		    n -= 1;
+		    m -= 1;
+        }
+        break;
+      case 35:
+        await platform(29, 19, 25, 7);
+        break;
+      case 10:
+        setPos(10,13,1);
+        break;
       }
-    } else if (block === 35) {
-      await platform(29, 19, 25, 7);
-    } else if (block === 10) {
-      setPos(10,13,1);
-    }
   }, 100);
 };
+
 
 
 document.getElementById('clear').addEventListener('click', () => {

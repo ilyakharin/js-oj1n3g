@@ -46,8 +46,8 @@ const movePlatform = async () => {
   setCuboid(28, 19, 20, 30, 19, 22, 17);
   let n = 0;
   let moveInterval = setInterval(async () => {
-    setCuboid(31 + x, 19, 20, 31 + x, 19, 22, 1);
-    setCuboid(28 + x, 19, 20, 28 + x, 19, 22, 0);
+    setCuboid(31 + n, 19, 20, 31 + n, 19, 22, 17);
+    setCuboid(28 + n, 19, 20, 28 + n, 19, 22, 0);
     n += 1;
     if (n > 15){
       clearInterval(moveInterval);
